@@ -2,12 +2,20 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { NavItem } from '../../components/common/NavItem';
 import { LogoIcon, GradCapIcon, RulerIcon, WeightIcon } from '../../components/common/Icons';
-import { featuredAthletes, athletesNearYou, coachesList, opportunitiesNearYou, scoreChartData } from '../../config/data';
+import { featuredAthletes, athletesNearYou, scoreChartData } from '../../data/athlete';
+import { coachesList } from '../../data/coach';
+import { opportunitiesNearYou } from '../../data/shared';
 import { 
   Plus, House, Video, ChartNoAxesColumn, Film, Activity, Users, MessageSquare, Bell, 
   CircleUser, CreditCard, Settings, Search, ChevronDown, ChevronLeft, ChevronRight,
   TrendingUp, MapPin, Calendar, Tag, Lock, Info, Play, CircleCheck, ArrowUpRight, Briefcase
 } from 'lucide-react';
+import { Messages } from '../../components/shared/Messages';
+import { Notifications } from '../../components/shared/Notifications';
+import { Settings as SettingsView } from '../../components/shared/Settings';
+import { ReelsView } from './components/ReelsView';
+import { FilmroomView } from './components/FilmroomView';
+import { PerformanceLabView } from './components/PerformanceLabView';
 
 export const AthletePortal = () => {
   const navigate = useNavigate();
@@ -28,7 +36,7 @@ export const AthletePortal = () => {
       <div className="w-64 bg-white border-r border-gray-200 flex flex-col h-full overflow-y-auto shrink-0 z-10 relative">
         <div className="p-6 flex items-center justify-between cursor-pointer group" onClick={handleHomeClick} title="Return to Home">
           <div className="flex items-center gap-2">
-            <LogoIcon className="h-6 w-6 group-hover:scale-110 transition-transform" />
+            <LogoIcon className="h-6 w-auto group-hover:scale-110 transition-transform" />
             <span className="font-bold text-gray-900 text-lg">Clutch</span>
           </div>
         </div>
@@ -46,13 +54,13 @@ export const AthletePortal = () => {
         
         <div className="flex-1 px-4 space-y-1">
           <NavItem onClick={() => setPortalTab("home")} icon={<House size={18} />} label="Home" active={portalTab === "home"} />
-          <NavItem icon={<Video size={18} />} label="Reels" />
+          <NavItem onClick={() => setPortalTab("reels")} icon={<Video size={18} />} label="Reels" active={portalTab === "reels"} />
           <NavItem onClick={() => setPortalTab("clutchscore")} icon={<ChartNoAxesColumn size={18} />} label="ClutchScore" badge={userPlan === "Basic" ? "Locked" : null} active={portalTab === "clutchscore"} />
-          <NavItem icon={<Film size={18} />} label="Filmroom" badge={userPlan === "Basic" ? "Locked" : null} hasDropdown />
-          <NavItem icon={<Activity size={18} />} label="Performance Lab" badge={userPlan !== "Pro" ? "Pro" : null} />
+          <NavItem onClick={() => setPortalTab("filmroom")} icon={<Film size={18} />} label="Filmroom" badge={userPlan === "Basic" ? "Locked" : null} hasDropdown active={portalTab === "filmroom"} />
+          <NavItem onClick={() => setPortalTab("performancelab")} icon={<Activity size={18} />} label="Performance Lab" badge={userPlan !== "Pro" ? "Pro" : null} active={portalTab === "performancelab"} />
           <NavItem onClick={() => { setPortalTab("myplayer"); setMyPlayerTab("players"); }} icon={<Users size={18} />} label="MyPlayer" active={portalTab === "myplayer"} />
           <NavItem onClick={() => setPortalTab("messages")} icon={<MessageSquare size={18} />} label="Messages" active={portalTab === "messages"} />
-          <NavItem icon={<Bell size={18} />} label="Notifications" />
+          <NavItem onClick={() => setPortalTab("notifications")} icon={<Bell size={18} />} label="Notifications" active={portalTab === "notifications"} />
         </div>
         
         {userPlan === "Basic" && (
@@ -68,7 +76,7 @@ export const AthletePortal = () => {
         <div className={`px-4 pb-6 ${userPlan !== "Basic" ? "mt-auto" : ""} pt-4 border-t border-gray-100 space-y-1`}>
           <NavItem onClick={() => setPortalTab("profile")} icon={<CircleUser size={18} />} label="Profile" active={portalTab === "profile"} />
           <NavItem onClick={handlePricingClick} icon={<CreditCard size={18} />} label="Pricing" />
-          <NavItem icon={<Settings size={18} />} label="Settings" />
+          <NavItem onClick={() => setPortalTab("settings")} icon={<Settings size={18} />} label="Settings" active={portalTab === "settings"} />
         </div>
       </div>
 
@@ -458,6 +466,14 @@ export const AthletePortal = () => {
               )}
             </div>
           )}
+
+          {/* NEW MODULES */}
+          {portalTab === "reels" && <ReelsView />}
+          {portalTab === "filmroom" && <FilmroomView userPlan={userPlan} />}
+          {portalTab === "performancelab" && <PerformanceLabView userPlan={userPlan} />}
+          {portalTab === "messages" && <Messages portal="athlete" />}
+          {portalTab === "notifications" && <Notifications portal="athlete" />}
+          {portalTab === "settings" && <SettingsView portal="athlete" />}
 
         </div>
       </div>

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { User, Briefcase, Video, ChartNoAxesColumn, ShieldCheck, Funnel, Users, TrendingUp, ArrowUpRight } from 'lucide-react';
+import { User, Briefcase, Video, ChartNoAxesColumn, ShieldCheck, Funnel, Users, TrendingUp, ArrowUpRight, X } from 'lucide-react';
 
 export const LandingView = () => {
   const navigate = useNavigate();
+  const [showDemoModal, setShowDemoModal] = useState(false);
 
   const handleRegisterClick = () => {
     navigate('/register');
@@ -190,12 +191,55 @@ export const LandingView = () => {
             <button onClick={handleRegisterClick} className="px-12 py-5 bg-blue-600 text-white font-black rounded-xl shadow-2xl hover:scale-105 transition-all text-xl inline-block">
               Register Interest
             </button>
-            <button onClick={handleAthleteDemoClick} className="px-12 py-5 border-2 border-white text-white font-black rounded-xl shadow-2xl hover:bg-white hover:text-gray-900 transition-all text-xl inline-block">
+            <button onClick={() => setShowDemoModal(true)} className="px-12 py-5 border-2 border-white text-white font-black rounded-xl shadow-2xl hover:bg-white hover:text-gray-900 transition-all text-xl inline-block">
               Watch Demo
             </button>
           </div>
         </div>
       </section>
+
+      {showDemoModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+          <div className="bg-white rounded-[2rem] p-8 max-w-[400px] w-full shadow-2xl relative border border-gray-100 text-left">
+            <button 
+              onClick={() => setShowDemoModal(false)}
+              className="absolute top-6 right-6 w-8 h-8 bg-gray-50 flex items-center justify-center rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+            >
+              <X size={18} className="stroke-[3]" />
+            </button>
+            <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">Select Demo</h3>
+            <p className="text-gray-500 mb-8 font-medium text-sm">Which platform would you like to explore?</p>
+            
+            <div className="space-y-4">
+              <button 
+                onClick={handleAthleteDemoClick}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-2xl flex items-center gap-4 transition-all hover:-translate-y-1 shadow-md hover:shadow-lg"
+              >
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center shrink-0 border border-white/10">
+                  <User size={24} className="text-white" />
+                </div>
+                <div className="text-left flex-1 min-w-0">
+                  <div className="font-bold text-lg mb-0.5">Athlete Portal</div>
+                  <div className="text-blue-100 text-[10px] font-bold tracking-widest uppercase truncate border-t border-blue-500/50 pt-1 mt-1">Build momentum & exposure</div>
+                </div>
+              </button>
+              
+              <button 
+                onClick={handleCoachDemoClick}
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white p-4 rounded-2xl flex items-center gap-4 transition-all hover:-translate-y-1 shadow-md hover:shadow-lg"
+              >
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center shrink-0 border border-white/10">
+                  <Briefcase size={24} className="text-white" />
+                </div>
+                <div className="text-left flex-1 min-w-0">
+                  <div className="font-bold text-lg mb-0.5">Coach Portal</div>
+                  <div className="text-purple-100 text-[10px] font-bold tracking-widest uppercase truncate border-t border-purple-500/50 pt-1 mt-1">Scout & organize perfectly</div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

@@ -32,7 +32,7 @@ export const Navbar = () => {
     <>
       <nav className="flex items-center justify-between px-6 py-4 lg:px-12 backdrop-blur-md bg-white/5 border border-white/10 sticky top-4 z-50 mx-4 md:mx-auto max-w-7xl rounded-full">
         <div className="flex items-center gap-2 cursor-pointer group" onClick={() => handleNavClick(null)}>
-          <LogoIcon className="h-9 w-9 bg-white rounded-full p-1 border border-gray-100 shadow-sm group-hover:scale-110 transition-transform" />
+          <LogoIcon className="h-9 w-auto group-hover:scale-110 transition-transform" />
           <span className="text-xl font-bold tracking-wide text-white">Clutch</span>
         </div>
         

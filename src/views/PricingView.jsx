@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, CircleCheck, Star } from 'lucide-react';
-import { comparisonRows, faqs } from '../config/data';
+import { comparisonRows, faqs } from '../data/shared';
 
 export const PricingView = () => {
   const navigate = useNavigate();
