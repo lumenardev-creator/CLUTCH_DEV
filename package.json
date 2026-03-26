@@ -1,0 +1,36 @@
+{
+  "name": "clutch",
+  "version": "1.0.0",
+  "description": "Clutch is a modern landing page project built with HTML, TSX, and Tailwind CSS. It is designed to provide users with a seamless and premium experience.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lumenardev-creator/CLUTCH_DEV.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lumenardev-creator/CLUTCH_DEV/issues"
+  },
+  "homepage": "https://github.com/lumenardev-creator/CLUTCH_DEV#readme",
+  "dependencies": {
+    "lucide-react": "^1.7.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.2",
+    "three": "^0.183.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19",
+    "vite": "^8.0.3"
+  }
+}
