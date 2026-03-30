@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useUser } from '../../hooks/useUser';
 import { NavItem } from '../../components/common/NavItem';
 import { LogoIcon, GradCapIcon, RulerIcon, WeightIcon } from '../../components/common/Icons';
 import { featuredAthletes, athletesNearYou, scoreChartData } from '../../data/athlete';
@@ -21,12 +22,12 @@ export const AthletePortal = () => {
   const navigate = useNavigate();
   const [portalTab, setPortalTab] = useState("home");
   const [myPlayerTab, setMyPlayerTab] = useState("players");
-  const [userPlan, setUserPlan] = useState("Basic");
+  const { userPlan } = useUser();
   const [currentAthleteIdx, setCurrentAthleteIdx] = useState(0);
   const [hoveredPoint, setHoveredPoint] = useState(null);
   
   const handleHomeClick = () => navigate('/');
-  const handlePricingClick = () => navigate('/pricing');
+  const handlePricingClick = () => navigate('/pricing', { state: { from: '/demo' } });
   const handleNextAthlete = () => setCurrentAthleteIdx((prev) => (prev + 1) % featuredAthletes.length);
   const handlePrevAthlete = () => setCurrentAthleteIdx((prev) => (prev - 1 + featuredAthletes.length) % featuredAthletes.length);
 

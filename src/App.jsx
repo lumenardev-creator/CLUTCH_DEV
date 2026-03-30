@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { AnimatedBackground } from './components/common/AnimatedBackground';
-import { LandingView, AthletePortal, CoachPortal, PricingView, RegisterView, SuccessView } from './views';
+import { LandingView, AthletePortal, CoachPortal, PricingView, SignupView, LoginView, SuccessView } from './views';
+import { UserProvider } from './hooks/useUser';
 
 const LayoutWithBackground = ({ children, hideFooter = false }) => {
   return (
@@ -27,7 +28,8 @@ const AppRoutes = () => {
     <div className="relative min-h-screen font-sans text-white fallback-bg selection:bg-blue-500/30">
       <Routes>
         <Route path="/" element={<LayoutWithBackground><LandingView /></LayoutWithBackground>} />
-        <Route path="/register" element={<LayoutWithBackground hideFooter={true}><RegisterView /></LayoutWithBackground>} />
+        <Route path="/signup" element={<LayoutWithBackground hideFooter={true}><SignupView /></LayoutWithBackground>} />
+        <Route path="/login" element={<LayoutWithBackground hideFooter={true}><LoginView /></LayoutWithBackground>} />
         <Route path="/success" element={<LayoutWithBackground hideFooter={true}><SuccessView /></LayoutWithBackground>} />
         <Route path="/demo" element={
           <div className="relative z-20 flex flex-col min-h-screen">
@@ -51,9 +53,11 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <Router>
-      <AppRoutes />
-    </Router>
+    <UserProvider>
+      <Router>
+        <AppRoutes />
+      </Router>
+    </UserProvider>
   );
 };
 

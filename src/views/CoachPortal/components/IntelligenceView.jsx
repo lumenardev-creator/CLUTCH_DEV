@@ -1,7 +1,32 @@
 import React from 'react';
-import { Target, TrendingUp, AlertCircle, LineChart, Activity } from 'lucide-react';
+import { Target, TrendingUp, AlertCircle, LineChart, Activity, Lock } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-export const IntelligenceView = () => {
+export const IntelligenceView = ({ userPlan }) => {
+  const navigate = useNavigate();
+
+  if (userPlan !== "Pro") {
+    return (
+      <div className="animate-in fade-in duration-300 w-full max-w-6xl mx-auto flex flex-col h-full">
+        <div className="flex items-end justify-between mb-8 pb-3 border-b border-gray-200 shrink-0">
+          <div>
+            <h1 className="text-3xl font-black text-gray-900 mb-1 tracking-tight">Recruiting Intelligence</h1>
+            <p className="text-gray-500 text-sm font-medium">Data-driven insights for your pipeline</p>
+          </div>
+          <span className="bg-purple-600 text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-sm">Pro Feature</span>
+        </div>
+        <div className="bg-white rounded-3xl p-16 shadow-sm border border-gray-100 text-center flex flex-col items-center justify-center min-h-[500px]">
+          <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+            <Lock size={24} className="text-gray-400" />
+          </div>
+          <h2 className="text-2xl font-black text-gray-900 mb-4">Unlock Recruiting Intelligence</h2>
+          <p className="text-gray-600 text-sm mb-8 font-medium max-w-md">Upgrade to the Pro plan to access advanced metrics, pipeline health tracking, and regional talent distribution maps.</p>
+          <button onClick={() => navigate('/pricing', { state: { from: '/coach' } })} className="bg-purple-600 hover:bg-purple-700 text-white font-bold px-8 py-3 rounded-xl text-sm shadow-md transition-colors mb-4">View Plans</button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="animate-in fade-in duration-300 w-full max-w-6xl mx-auto flex flex-col h-full">
       <div className="flex items-end justify-between mb-8 pb-3 border-b border-gray-200 shrink-0">

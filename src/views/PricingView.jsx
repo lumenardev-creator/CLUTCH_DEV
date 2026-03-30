@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useUser } from '../hooks/useUser';
 import { ChevronLeft, CircleCheck, Star } from 'lucide-react';
 import { comparisonRows, faqs } from '../data/shared';
 
 export const PricingView = () => {
   const navigate = useNavigate();
-  const [userPlan, setUserPlan] = useState("Basic");
+  const location = useLocation();
+  const returnPath = location.state?.from || '/';
+  const { userPlan, setUserPlan } = useUser();
 
   return (
     <div className="flex-grow flex flex-col bg-[#fafafa] text-gray-900 font-sans pb-24 animate-in fade-in duration-300">
       <div className="max-w-6xl mx-auto w-full pt-8 px-6">
-        <button onClick={() => navigate('/demo')} className="flex items-center text-gray-500 hover:text-gray-900 transition-colors font-semibold text-sm w-max">
-          <ChevronLeft size={16} className="mr-1" /> Back to Athlete Portal
+        <button onClick={() => navigate(returnPath)} className="flex items-center text-gray-500 hover:text-gray-900 transition-colors font-semibold text-sm w-max">
+          <ChevronLeft size={16} className="mr-1" /> Back to Portal
         </button>
       </div>
       
@@ -45,7 +48,7 @@ export const PricingView = () => {
           <button
             onClick={() => {
               setUserPlan("Basic");
-              navigate('/demo');
+              navigate(returnPath);
             }}
             className={`w-full py-3.5 rounded-xl border-2 ${userPlan === "Basic" ? "border-gray-100 text-gray-400 cursor-not-allowed" : "border-blue-600 text-blue-600 hover:bg-blue-50"} font-bold mt-auto transition-colors`}
           >
@@ -74,7 +77,7 @@ export const PricingView = () => {
           <button
             onClick={() => {
               setUserPlan("Verified");
-              navigate('/demo');
+              navigate(returnPath);
             }}
             className={`w-full py-3.5 rounded-xl font-bold shadow-md transition-colors mt-auto ${userPlan === "Verified" ? "bg-green-500 text-white cursor-default" : "bg-blue-600 hover:bg-blue-700 text-white"}`}
           >
@@ -100,7 +103,7 @@ export const PricingView = () => {
           <button
             onClick={() => {
               setUserPlan("Pro");
-              navigate('/demo');
+              navigate(returnPath);
             }}
             className={`w-full py-3.5 rounded-xl font-bold shadow-md transition-colors mt-auto ${userPlan === "Pro" ? "bg-green-500 text-white cursor-default" : "bg-gray-900 hover:bg-black text-white"}`}
           >

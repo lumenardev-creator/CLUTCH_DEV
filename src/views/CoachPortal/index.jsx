@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useUser } from '../../hooks/useUser';
 import { NavItem } from '../../components/common/NavItem';
 import { LogoIcon } from '../../components/common/Icons';
 import { 
@@ -23,10 +24,11 @@ import { Settings as SettingsView } from '../../components/shared/Settings';
 
 export const CoachPortal = () => {
   const navigate = useNavigate();
+  const { userPlan } = useUser();
   const [portalTab, setPortalTab] = useState("dashboard");
   
   const handleHomeClick = () => navigate('/');
-  const handlePricingClick = () => navigate('/pricing');
+  const handlePricingClick = () => navigate('/pricing', { state: { from: '/coach' } });
 
   return (
     <div className="fixed inset-0 z-50 flex h-screen w-full bg-[#f8f9fa] text-gray-900 font-sans overflow-hidden animate-in fade-in duration-300">
@@ -41,7 +43,7 @@ export const CoachPortal = () => {
         
         <div className="px-6 flex items-center justify-between mb-6">
           <span className="text-[10px] text-blue-600 bg-blue-50 border border-blue-100 uppercase font-black tracking-widest px-2 py-1 rounded-md">Coach/Scout</span>
-          <span className="bg-gray-900 text-white text-[10px] px-2 py-0.5 rounded-full font-bold">Pro</span>
+          <span className="bg-gray-900 text-white text-[10px] px-2 py-0.5 rounded-full font-bold">{userPlan}</span>
         </div>
         
         <div className="px-6 mb-6">
@@ -62,7 +64,7 @@ export const CoachPortal = () => {
           
           <div className="text-xs font-bold text-gray-400 uppercase tracking-widest px-4 pb-2 pt-6">Recruiting</div>
           <NavItem onClick={() => setPortalTab("board")} icon={<ListChecks size={18} />} label="Recruiting Board" active={portalTab === "board"} />
-          <NavItem onClick={() => setPortalTab("intelligence")} icon={<TrendingUp size={18} />} label="Intelligence" active={portalTab === "intelligence"} />
+          <NavItem onClick={() => setPortalTab("intelligence")} icon={<TrendingUp size={18} />} label="Intelligence" badge={userPlan !== "Pro" ? "Pro" : null} active={portalTab === "intelligence"} />
           <NavItem onClick={() => setPortalTab("events")} icon={<MapIcon size={18} />} label="Events & Map" active={portalTab === "events"} />
           
           <div className="text-xs font-bold text-gray-400 uppercase tracking-widest px-4 pb-2 pt-6">Communication</div>
@@ -84,7 +86,7 @@ export const CoachPortal = () => {
           {portalTab === "scout" && <ScoutSwipeView />}
           {portalTab === "search" && <CoachSearchView />}
           {portalTab === "board" && <RecruitingBoardView />}
-          {portalTab === "intelligence" && <IntelligenceView />}
+          {portalTab === "intelligence" && <IntelligenceView userPlan={userPlan} />}
           {portalTab === "events" && <EventsMapView />}
           
           {portalTab === "messages" && <Messages portal="coach" />}

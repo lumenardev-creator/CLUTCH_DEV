@@ -7,7 +7,7 @@ export const LandingView = () => {
   const [showDemoModal, setShowDemoModal] = useState(false);
 
   const handleRegisterClick = () => {
-    navigate('/register');
+    navigate('/signup');
   };
 
   const handleDemoClick = (sectionId) => {

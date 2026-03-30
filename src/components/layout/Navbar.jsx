@@ -30,9 +30,9 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-between px-6 py-4 lg:px-12 backdrop-blur-md bg-white/5 border border-white/10 sticky top-4 z-50 mx-4 md:mx-auto max-w-7xl rounded-full">
-        <div className="flex items-center gap-2 cursor-pointer group" onClick={() => handleNavClick(null)}>
-          <LogoIcon className="h-9 w-auto group-hover:scale-110 transition-transform" />
+      <nav className="flex items-center justify-between gap-8 px-6 py-4 lg:px-12 backdrop-blur-md bg-white/5 border border-white/10 sticky top-4 z-50 mx-4 md:mx-auto max-w-7xl rounded-full">
+        <div className="flex items-center cursor-pointer group shrink-0" onClick={() => handleNavClick(null)}>
+          <LogoIcon className="h-9 w-auto group-hover:scale-110 transition-transform -mr-1" />
           <span className="text-xl font-bold tracking-wide text-white">Clutch</span>
         </div>
         
@@ -44,9 +44,10 @@ export const Navbar = () => {
           <button onClick={() => handleNavClick('join-section')} className="hover:text-white transition-colors">Get Started</button>
         </div>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4 shrink-0">
           <button onClick={() => handleNavClick('demo-section')} className="text-sm font-medium text-blue-50 hover:text-white transition-colors">Demo</button>
-          <Link to="/register" className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-md shadow-md transition-all hover:scale-105 active:scale-95">Register</Link>
+          <Link to="/login" className="px-5 py-2 text-white border border-white/20 hover:bg-white/10 text-sm font-semibold rounded-md transition-all hover:scale-105 active:scale-95">Log In</Link>
+          <Link to="/signup" className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-md shadow-md transition-all hover:scale-105 active:scale-95">Sign Up</Link>
         </div>
 
         <button className="md:hidden p-2 text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -64,7 +65,8 @@ export const Navbar = () => {
           
           <div className="flex flex-col gap-4 w-full px-8 mt-4">
             <button onClick={() => handleNavClick('demo-section')} className="w-full py-4 border border-white/20 rounded-xl text-lg text-white font-medium">Demo</button>
-            <button onClick={() => { setIsMobileMenuOpen(false); navigate('/register'); }} className="w-full py-4 bg-blue-600 text-white rounded-xl font-bold text-lg shadow-lg">Register</button>
+            <button onClick={() => { setIsMobileMenuOpen(false); navigate('/login'); }} className="w-full py-4 border border-white/20 rounded-xl text-lg text-white font-medium">Log In</button>
+            <button onClick={() => { setIsMobileMenuOpen(false); navigate('/signup'); }} className="w-full py-4 bg-blue-600 text-white rounded-xl font-bold text-lg shadow-lg">Sign Up</button>
           </div>
         </div>
       )}

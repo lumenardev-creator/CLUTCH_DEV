@@ -46,6 +46,17 @@ export const mockConversations = [
     verified: true
   },
   {
+    id: 'c3',
+    participantId: 'c3',
+    participantName: 'Coach John Davis',
+    participantType: 'coach',
+    participantPhoto: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
+    lastMessage: 'Impressive stats this season. Keep it up!',
+    lastMessageTime: new Date(Date.now() - 172800000),
+    unread: 0,
+    verified: true
+  },
+  {
     id: 'conv3',
     participantId: '2',
     participantName: 'Jaylen Williams',
@@ -53,6 +64,38 @@ export const mockConversations = [
     participantPhoto: 'https://images.unsplash.com/photo-1762025930827-9f1dda45aff8?w=400',
     lastMessage: 'That game was crazy! Good luck with recruiting.',
     lastMessageTime: new Date(Date.now() - 172800000),
+    unread: 0
+  },
+  {
+    id: 'conv4',
+    participantId: '3',
+    participantName: 'DeAndre Carter',
+    participantType: 'athlete',
+    participantPhoto: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400',
+    lastMessage: 'Thanks coach, looking forward to the visit.',
+    lastMessageTime: new Date(Date.now() - 3600000),
+    unread: 1,
+    verified: true
+  },
+  {
+    id: 'conv5',
+    participantId: '4',
+    participantName: 'Marcus Johnson',
+    participantType: 'athlete',
+    participantPhoto: 'https://images.unsplash.com/photo-1519865885898-a54a6f2c7eea?w=400',
+    lastMessage: 'Are there any scholarships still available?',
+    lastMessageTime: new Date(Date.now() - 86400000),
+    unread: 0,
+    verified: true
+  },
+  {
+    id: 'conv6',
+    participantId: '5',
+    participantName: 'Tyler Robinson',
+    participantType: 'athlete',
+    participantPhoto: 'https://images.unsplash.com/photo-1508344928928-7137b2f3a610?w=400',
+    lastMessage: 'I submitted my highlights reel yesterday.',
+    lastMessageTime: new Date(Date.now() - 5000000),
     unread: 0
   }
 ];
@@ -87,6 +130,56 @@ export const mockMessages = [
     content: 'I\'d love to see more of your highlight footage.',
     timestamp: new Date(Date.now() - 3600000),
     read: false
+  },
+  {
+    id: 'm4',
+    conversationId: 'conv4',
+    senderId: 'current',
+    senderName: 'You',
+    senderType: 'coach',
+    content: 'Hey DeAndre, great game last night. Let\'s schedule a visit.',
+    timestamp: new Date(Date.now() - 7200000),
+    read: true
+  },
+  {
+    id: 'm5',
+    conversationId: 'conv4',
+    senderId: '3',
+    senderName: 'DeAndre Carter',
+    senderType: 'athlete',
+    content: 'Thanks coach, looking forward to the visit.',
+    timestamp: new Date(Date.now() - 3600000),
+    read: false
+  },
+  {
+    id: 'm6',
+    conversationId: 'conv5',
+    senderId: '4',
+    senderName: 'Marcus Johnson',
+    senderType: 'athlete',
+    content: 'Hi coach, I was wondering about the program requirements.',
+    timestamp: new Date(Date.now() - 90000000),
+    read: true
+  },
+  {
+    id: 'm7',
+    conversationId: 'conv5',
+    senderId: 'current',
+    senderName: 'You',
+    senderType: 'coach',
+    content: 'I\'ll send you the details shortly.',
+    timestamp: new Date(Date.now() - 88000000),
+    read: true
+  },
+  {
+    id: 'm8',
+    conversationId: 'conv5',
+    senderId: '4',
+    senderName: 'Marcus Johnson',
+    senderType: 'athlete',
+    content: 'Are there any scholarships still available?',
+    timestamp: new Date(Date.now() - 86400000),
+    read: true
   }
 ];
 
