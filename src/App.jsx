@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { AnimatedBackground } from './components/common/AnimatedBackground';
-import { LandingView, AthletePortal, CoachPortal, PricingView, SignupView, LoginView, SuccessView } from './views';
+import { LandingView, AthletePortal, CoachPortal, PricingView, SignupView, LoginView, SuccessView, SignupSuccess, ComingSoon } from './views';
 import { UserProvider } from './hooks/useUser';
 
 const LayoutWithBackground = ({ children, hideFooter = false }) => {
@@ -31,6 +31,8 @@ const AppRoutes = () => {
         <Route path="/signup" element={<LayoutWithBackground hideFooter={true}><SignupView /></LayoutWithBackground>} />
         <Route path="/login" element={<LayoutWithBackground hideFooter={true}><LoginView /></LayoutWithBackground>} />
         <Route path="/success" element={<LayoutWithBackground hideFooter={true}><SuccessView /></LayoutWithBackground>} />
+        <Route path="/signup-success" element={<LayoutWithBackground hideFooter={true}><SignupSuccess /></LayoutWithBackground>} />
+        <Route path="/coming-soon" element={<LayoutWithBackground hideFooter={true}><ComingSoon /></LayoutWithBackground>} />
         <Route path="/demo" element={
           <div className="relative z-20 flex flex-col min-h-screen">
             <AthletePortal />

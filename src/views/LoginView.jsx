@@ -10,9 +10,7 @@ export const LoginView = () => {
         <h2 className="text-4xl font-black mb-8 text-center tracking-tight text-gray-900">Log In</h2>
         <form onSubmit={(e) => {
           e.preventDefault();
-          // Simple mock login flow: you could redirect to athlete or coach portal depending on logic
-          // For now, redirect to coach portal as default to show functionality
-          navigate('/coach');
+          navigate('/coming-soon');
         }} className="space-y-6">
           <div>
             <label className="block text-xs font-black uppercase text-gray-400 mb-2 tracking-widest">Email *</label>

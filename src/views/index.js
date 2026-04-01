@@ -1,5 +1,7 @@
 export { LandingView } from './LandingView';
 export { SignupView } from './SignupView';
+export { SignupSuccess } from './SignupSuccess';
+export { ComingSoon } from './ComingSoon';
 export { LoginView } from './LoginView';
 export { SuccessView } from './SuccessView';
 export { PricingView } from './PricingView';
