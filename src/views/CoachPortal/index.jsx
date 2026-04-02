@@ -35,9 +35,9 @@ export const CoachPortal = () => {
       {/* Sidebar Navigation */}
       <div className="w-64 bg-white border-r border-gray-200 flex flex-col h-full overflow-y-auto shrink-0 z-10 relative">
         <div className="p-6 flex items-center justify-between cursor-pointer group" onClick={handleHomeClick} title="Return to Home">
-          <div className="flex items-center gap-2">
-            <LogoIcon className="h-6 w-auto group-hover:scale-110 transition-transform text-blue-600" />
-            <span className="font-bold text-gray-900 text-lg">Clutch</span>
+          <div className="flex items-center cursor-pointer group shrink-0">
+            <LogoIcon className="h-9 w-auto group-hover:scale-110 transition-transform -mr-2 brightness-0" />
+            <span className="text-xl font-bold tracking-wide text-gray-900">Clutch</span>
           </div>
         </div>
         

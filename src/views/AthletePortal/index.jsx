@@ -17,6 +17,7 @@ import { Settings as SettingsView } from '../../components/shared/Settings';
 import { ReelsView } from './components/ReelsView';
 import { FilmroomView } from './components/FilmroomView';
 import { PerformanceLabView } from './components/PerformanceLabView';
+import { ClutchScoreView } from './components/ClutchScoreView';
 
 export const AthletePortal = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ export const AthletePortal = () => {
   const [myPlayerTab, setMyPlayerTab] = useState("players");
   const { userPlan } = useUser();
   const [currentAthleteIdx, setCurrentAthleteIdx] = useState(0);
-  const [hoveredPoint, setHoveredPoint] = useState(null);
+  const [isFilmroomOpen, setIsFilmroomOpen] = useState(false);
   
   const handleHomeClick = () => navigate('/');
   const handlePricingClick = () => navigate('/pricing', { state: { from: '/demo' } });
@@ -36,9 +37,9 @@ export const AthletePortal = () => {
       {/* Sidebar Navigation */}
       <div className="w-64 bg-white border-r border-gray-200 flex flex-col h-full overflow-y-auto shrink-0 z-10 relative">
         <div className="p-6 flex items-center justify-between cursor-pointer group" onClick={handleHomeClick} title="Return to Home">
-          <div className="flex items-center gap-2">
-            <LogoIcon className="h-6 w-auto group-hover:scale-110 transition-transform" />
-            <span className="font-bold text-gray-900 text-lg">Clutch</span>
+          <div className="flex items-center cursor-pointer group shrink-0">
+            <LogoIcon className="h-9 w-auto group-hover:scale-110 transition-transform -mr-2 brightness-0" />
+            <span className="text-xl font-bold tracking-wide text-gray-900">Clutch</span>
           </div>
         </div>
         
@@ -57,7 +58,30 @@ export const AthletePortal = () => {
           <NavItem onClick={() => setPortalTab("home")} icon={<House size={18} />} label="Home" active={portalTab === "home"} />
           <NavItem onClick={() => setPortalTab("reels")} icon={<Video size={18} />} label="Reels" active={portalTab === "reels"} />
           <NavItem onClick={() => setPortalTab("clutchscore")} icon={<ChartNoAxesColumn size={18} />} label="ClutchScore" badge={userPlan === "Basic" ? "Locked" : null} active={portalTab === "clutchscore"} />
-          <NavItem onClick={() => setPortalTab("filmroom")} icon={<Film size={18} />} label="Filmroom" badge={userPlan === "Basic" ? "Locked" : null} hasDropdown active={portalTab === "filmroom"} />
+          
+          <div className="flex flex-col">
+            <NavItem 
+              onClick={() => { setIsFilmroomOpen(!isFilmroomOpen); setPortalTab(portalTab.startsWith("filmroom") ? portalTab : "filmroom-base"); }} 
+              icon={<Film size={18} />} 
+              label="Filmroom" 
+              badge={userPlan === "Basic" ? "Locked" : null} 
+              hasDropdown 
+              active={portalTab.startsWith("filmroom")} 
+            />
+            {isFilmroomOpen && (
+              <div className="pl-11 pr-4 py-1 flex flex-col gap-1">
+                <div onClick={() => setPortalTab("filmroom-base")} className={`text-sm py-2.5 px-3 rounded-lg cursor-pointer flex items-center justify-between transition-colors ${portalTab === "filmroom-base" || portalTab === "filmroom" ? "bg-gray-100 text-gray-900 font-bold" : "text-gray-500 hover:bg-gray-50 font-medium"}`}>
+                  Filmroom Base
+                  <span className="bg-blue-50 text-blue-600 border border-blue-100 text-[10px] px-2 py-0.5 rounded-full font-bold">Verified</span>
+                </div>
+                <div onClick={() => setPortalTab("filmroom-pro")} className={`text-sm py-2.5 px-3 rounded-lg cursor-pointer flex items-center justify-between transition-colors ${portalTab === "filmroom-pro" ? "bg-gray-100 text-gray-900 font-bold" : "text-gray-500 hover:bg-gray-50 font-medium"}`}>
+                  Filmroom+
+                  <span className="bg-white border border-gray-200 text-purple-600 text-[10px] px-2 py-0.5 rounded-full font-bold shadow-sm">Pro</span>
+                </div>
+              </div>
+            )}
+          </div>
+
           <NavItem onClick={() => setPortalTab("performancelab")} icon={<Activity size={18} />} label="Performance Lab" badge={userPlan !== "Pro" ? "Pro" : null} active={portalTab === "performancelab"} />
           <NavItem onClick={() => { setPortalTab("myplayer"); setMyPlayerTab("players"); }} icon={<Users size={18} />} label="MyPlayer" active={portalTab === "myplayer"} />
           <NavItem onClick={() => setPortalTab("messages")} icon={<MessageSquare size={18} />} label="Messages" active={portalTab === "messages"} />
@@ -431,46 +455,12 @@ export const AthletePortal = () => {
           )}
           
           {/* CLUTCHSCORE TAB */}
-          {portalTab === "clutchscore" && (
-            <div className="animate-in fade-in duration-300">
-              <div className="flex items-end justify-between mb-8 pb-6 border-b border-gray-200">
-                <div>
-                  <h1 className="text-3xl font-black text-gray-900 mb-1 tracking-tight">ClutchScore</h1>
-                  <p className="text-gray-500 text-sm font-medium">Your statistical performance rating</p>
-                </div>
-                {userPlan !== "Basic" && <span className="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-sm">Verified Feature</span>}
-              </div>
-              
-              {userPlan === "Basic" ? (
-                <div className="bg-white rounded-3xl p-16 shadow-sm border border-gray-100 text-center flex flex-col items-center justify-center min-h-[500px]">
-                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6">
-                    <Lock size={24} className="text-gray-400" />
-                  </div>
-                  <h2 className="text-4xl font-black text-gray-900 mb-6">ClutchScore</h2>
-                  <div className="text-7xl font-black text-gray-900 tracking-tighter mb-8 blur-md select-none opacity-30">12.4</div>
-                  <p className="text-gray-600 text-lg mb-4 font-medium max-w-md">Unlock ClutchScore to access your statistical performance rating.</p>
-                  <button onClick={handlePricingClick} className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-10 py-4 rounded-xl text-lg shadow-md transition-colors mb-4">Upgrade to Verified</button>
-                </div>
-              ) : (
-                <div className="space-y-6">
-                  {/* Verified ClutchScore View */}
-                  <div className="bg-white rounded-[2rem] p-10 shadow-sm border border-gray-100 text-center">
-                    <div className="text-8xl font-black text-blue-600 tracking-tighter mb-2">12.4</div>
-                    <div className="text-xl font-bold text-gray-900 mb-8">ClutchScore</div>
-                    <div className="space-y-2 mb-8 text-sm font-medium text-gray-600">
-                      <p>Top 18% Nationally</p>
-                      <p>Top 9% In State</p>
-                      <p>Top 22% Among PGs</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
+          {portalTab === "clutchscore" && <ClutchScoreView userPlan={userPlan} handlePricingClick={handlePricingClick} />}
 
           {/* NEW MODULES */}
           {portalTab === "reels" && <ReelsView />}
-          {portalTab === "filmroom" && <FilmroomView userPlan={userPlan} />}
+          {(portalTab === "filmroom" || portalTab === "filmroom-base") && <FilmroomView userPlan={userPlan} type="base" />}
+          {portalTab === "filmroom-pro" && <FilmroomView userPlan={userPlan} type="pro" />}
           {portalTab === "performancelab" && <PerformanceLabView userPlan={userPlan} />}
           {portalTab === "messages" && <Messages portal="athlete" />}
           {portalTab === "notifications" && <Notifications portal="athlete" />}

@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const ComingSoon = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const stored = sessionStorage.getItem('clutch_user');
+    if (stored) {
+      try {
+        setUser(JSON.parse(stored));
+      } catch {}
+    }
+  }, []);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('clutch_user');
+    navigate('/');
+  };
 
   return (
     <>
@@ -37,12 +52,31 @@ export const ComingSoon = () => {
             ))}
           </div>
 
-          <button
-            onClick={() => navigate('/signup')}
-            className="w-full py-5 bg-blue-600 text-white font-black rounded-xl shadow-xl hover:scale-105 hover:-translate-y-1 transition-all text-xl"
-          >
-            Join Waitlist
-          </button>
+          {user ? (
+            <>
+              <div className="bg-green-50 border border-green-200 rounded-xl py-4 px-5 mb-6">
+                <p className="text-green-700 font-bold text-lg">✅ You're on the waitlist!</p>
+                <p className="text-green-600 text-sm mt-1">
+                  Welcome back, <span className="font-semibold">{user.name}</span>. We'll notify you at <span className="font-semibold">{user.email}</span> when we launch.
+                </p>
+              </div>
+              <button
+                onClick={handleLogout}
+                className="w-full py-4 bg-gray-200 text-gray-700 font-bold rounded-xl hover:bg-gray-300 transition-all text-lg"
+              >
+                Log Out
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => navigate('/signup')}
+                className="w-full py-5 bg-blue-600 text-white font-black rounded-xl shadow-xl hover:scale-105 hover:-translate-y-1 transition-all text-xl"
+              >
+                Join Waitlist
+              </button>
+            </>
+          )}
           <button
             type="button"
             onClick={() => navigate('/')}

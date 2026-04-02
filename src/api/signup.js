@@ -16,7 +16,6 @@ export default async function handleSignup({ name, email, phone_number, password
   const { data: insertData, error } = await supabase
     .from('waitlist')
     .insert({ name, email, phone_number, password_hash, role, sport })
-    .select()
 
   console.log("Insert result - data:", insertData, "error:", error)
 

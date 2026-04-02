@@ -93,35 +93,7 @@ export const SignupView = () => {
             Back to Home
           </button>
 
-          {/* TEMPORARY: Manual test button for Edge Function */}
-          <button
-            type="button"
-            onClick={async () => {
-              console.log("🧪 Manual test triggered");
-              try {
-                const res = await fetch("https://mefddbwmfnexhzkjdyix.supabase.co/functions/v1/send-welcome-email", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({
-                    name: "Manual Test",
-                    email: "mmohithsai3@gmail.com"
-                  }),
-                });
-                console.log("📡 Manual fetch status:", res.status);
-                const text = await res.text();
-                console.log("🧪 Manual response:", text);
-                alert("Response: " + res.status + " - " + text);
-              } catch (err) {
-                console.error("❌ Manual test failed:", err);
-                alert("FAILED: " + err.message);
-              }
-            }}
-            className="w-full py-4 bg-orange-500 text-white font-black rounded-xl shadow-xl hover:-translate-y-1 transition-all text-lg mt-4"
-          >
-            🧪 TEST EMAIL FUNCTION
-          </button>
+
         </form>
       </div>
     </main>

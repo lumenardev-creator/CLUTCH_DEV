@@ -1,6 +1,6 @@
 export const opportunitiesNearYou = [
   { title: "Elite Basketball Camp - Summer 2026", type: "Camp", date: "July 15-20, 2026", location: "Los Angeles, CA", tags: "Elite \u2022 $450", desc: "High-level training camp with D1 coaches", img: "https://images.unsplash.com/photo-1505666287802-931dc83948e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
-  { title: "National Showcase Tournament", type: "Tournament", date: "August 5-7, 2026", location: "Las Vegas, NV", tags: "National \u2022 $350", desc: "Compete against top prospects from across the nation", img: "https://images.unsplash.com/photo-1518481612222-68bbe828def1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+  { title: "National Showcase Tournament", type: "Tournament", date: "August 5-7, 2026", location: "Las Vegas, NV", tags: "National \u2022 $350", desc: "Compete against top prospects from across the nation", img: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
   { title: "College Prep Showcase", type: "Showcase", date: "June 12, 2026", location: "Chicago, IL", tags: "All Levels \u2022 $200", desc: "Showcase your skills in front of 40+ college coaches", img: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" }
 ];
 
