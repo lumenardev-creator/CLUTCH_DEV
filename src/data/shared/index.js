@@ -1,0 +1,219 @@
+export const opportunitiesNearYou = [
+  { title: "Elite Basketball Camp - Summer 2026", type: "Camp", date: "July 15-20, 2026", location: "Los Angeles, CA", tags: "Elite \u2022 $450", desc: "High-level training camp with D1 coaches", img: "https://images.unsplash.com/photo-1505666287802-931dc83948e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+  { title: "National Showcase Tournament", type: "Tournament", date: "August 5-7, 2026", location: "Las Vegas, NV", tags: "National \u2022 $350", desc: "Compete against top prospects from across the nation", img: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" },
+  { title: "College Prep Showcase", type: "Showcase", date: "June 12, 2026", location: "Chicago, IL", tags: "All Levels \u2022 $200", desc: "Showcase your skills in front of 40+ college coaches", img: "https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" }
+];
+
+export const comparisonRows = [
+  { feature: "Profile Creation", basic: "check-green", verified: "check-green", pro: "check-green" },
+  { feature: "Post Reels", basic: "Limited", verified: "check-green", pro: "check-green" },
+  { feature: "Verified Badge", basic: "-", verified: "check-green", pro: "check-green" },
+  { feature: "Verified Stats", basic: "-", verified: "check-green", pro: "check-green" },
+  { feature: "ClutchScore", basic: "-", verified: "check-green", pro: "check-green" },
+  { feature: "Filmroom", basic: "-", verified: "Base", pro: "Advanced" },
+  { feature: "Storage", basic: "1 GB", verified: "10 GB", pro: "50 GB" },
+  { feature: "Performance Lab", basic: "-", verified: "-", pro: "check-purple", highlightPro: true },
+  { feature: "Priority Support", basic: "-", verified: "-", pro: "check-green" }
+];
+
+export const faqs = [
+  { q: "Can I cancel anytime?", a: "Yes! You can upgrade, downgrade, or cancel your plan at any time. No long-term commitments." },
+  { q: "What's the difference between Verified and Pro?", a: "Verified gives you the credibility boost with verified stats and ClutchScore. Pro adds advanced tools like Filmroom+ and Performance Lab to help you train and improve faster." },
+  { q: "Is my data secure and NCAA-compliant?", a: "Absolutely. All plans include NCAA-compliant data handling and secure storage. Your privacy is our priority." }
+];
+
+export const mockConversations = [
+  {
+    id: 'conv1',
+    participantId: 'c1',
+    participantName: 'Coach Mike Thompson',
+    participantType: 'coach',
+    participantPhoto: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400',
+    lastMessage: 'I\'d love to see more of your highlight footage.',
+    lastMessageTime: new Date(Date.now() - 3600000),
+    unread: 1,
+    verified: true
+  },
+  {
+    id: 'conv2',
+    participantId: 'c2',
+    participantName: 'Coach Sarah Williams',
+    participantType: 'coach',
+    participantPhoto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400',
+    lastMessage: 'Are you available for a campus visit?',
+    lastMessageTime: new Date(Date.now() - 86400000),
+    unread: 0,
+    verified: true
+  },
+  {
+    id: 'c3',
+    participantId: 'c3',
+    participantName: 'Coach John Davis',
+    participantType: 'coach',
+    participantPhoto: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
+    lastMessage: 'Impressive stats this season. Keep it up!',
+    lastMessageTime: new Date(Date.now() - 172800000),
+    unread: 0,
+    verified: true
+  },
+  {
+    id: 'conv3',
+    participantId: '2',
+    participantName: 'Jaylen Williams',
+    participantType: 'athlete',
+    participantPhoto: 'https://images.unsplash.com/photo-1762025930827-9f1dda45aff8?w=400',
+    lastMessage: 'That game was crazy! Good luck with recruiting.',
+    lastMessageTime: new Date(Date.now() - 172800000),
+    unread: 0
+  },
+  {
+    id: 'conv4',
+    participantId: '3',
+    participantName: 'DeAndre Carter',
+    participantType: 'athlete',
+    participantPhoto: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400',
+    lastMessage: 'Thanks coach, looking forward to the visit.',
+    lastMessageTime: new Date(Date.now() - 3600000),
+    unread: 1,
+    verified: true
+  },
+  {
+    id: 'conv5',
+    participantId: '4',
+    participantName: 'Marcus Johnson',
+    participantType: 'athlete',
+    participantPhoto: 'https://images.unsplash.com/photo-1519865885898-a54a6f2c7eea?w=400',
+    lastMessage: 'Are there any scholarships still available?',
+    lastMessageTime: new Date(Date.now() - 86400000),
+    unread: 0,
+    verified: true
+  },
+  {
+    id: 'conv6',
+    participantId: '5',
+    participantName: 'Tyler Robinson',
+    participantType: 'athlete',
+    participantPhoto: 'https://images.unsplash.com/photo-1508344928928-7137b2f3a610?w=400',
+    lastMessage: 'I submitted my highlights reel yesterday.',
+    lastMessageTime: new Date(Date.now() - 5000000),
+    unread: 0
+  }
+];
+
+export const mockMessages = [
+  {
+    id: 'm1',
+    conversationId: 'conv1',
+    senderId: 'c1',
+    senderName: 'Coach Mike Thompson',
+    senderType: 'coach',
+    content: 'Hi Marcus, I saw your performance at the showcase. Very impressive!',
+    timestamp: new Date(Date.now() - 7200000),
+    read: true
+  },
+  {
+    id: 'm2',
+    conversationId: 'conv1',
+    senderId: 'current',
+    senderName: 'You',
+    senderType: 'athlete',
+    content: 'Thank you coach! I appreciate you reaching out.',
+    timestamp: new Date(Date.now() - 5400000),
+    read: true
+  },
+  {
+    id: 'm3',
+    conversationId: 'conv1',
+    senderId: 'c1',
+    senderName: 'Coach Mike Thompson',
+    senderType: 'coach',
+    content: 'I\'d love to see more of your highlight footage.',
+    timestamp: new Date(Date.now() - 3600000),
+    read: false
+  },
+  {
+    id: 'm4',
+    conversationId: 'conv4',
+    senderId: 'current',
+    senderName: 'You',
+    senderType: 'coach',
+    content: 'Hey DeAndre, great game last night. Let\'s schedule a visit.',
+    timestamp: new Date(Date.now() - 7200000),
+    read: true
+  },
+  {
+    id: 'm5',
+    conversationId: 'conv4',
+    senderId: '3',
+    senderName: 'DeAndre Carter',
+    senderType: 'athlete',
+    content: 'Thanks coach, looking forward to the visit.',
+    timestamp: new Date(Date.now() - 3600000),
+    read: false
+  },
+  {
+    id: 'm6',
+    conversationId: 'conv5',
+    senderId: '4',
+    senderName: 'Marcus Johnson',
+    senderType: 'athlete',
+    content: 'Hi coach, I was wondering about the program requirements.',
+    timestamp: new Date(Date.now() - 90000000),
+    read: true
+  },
+  {
+    id: 'm7',
+    conversationId: 'conv5',
+    senderId: 'current',
+    senderName: 'You',
+    senderType: 'coach',
+    content: 'I\'ll send you the details shortly.',
+    timestamp: new Date(Date.now() - 88000000),
+    read: true
+  },
+  {
+    id: 'm8',
+    conversationId: 'conv5',
+    senderId: '4',
+    senderName: 'Marcus Johnson',
+    senderType: 'athlete',
+    content: 'Are there any scholarships still available?',
+    timestamp: new Date(Date.now() - 86400000),
+    read: true
+  }
+];
+
+export const mockNotifications = [
+  {
+    id: 'n1',
+    type: 'profile_view',
+    title: 'Coach Mike Thompson viewed your profile',
+    description: 'UCLA Assistant Coach',
+    timestamp: new Date(Date.now() - 1800000),
+    read: false
+  },
+  {
+    id: 'n2',
+    type: 'message',
+    title: 'New message from Coach Sarah Williams',
+    description: 'Are you available for a campus visit?',
+    timestamp: new Date(Date.now() - 86400000),
+    read: false
+  },
+  {
+    id: 'n3',
+    type: 'event',
+    title: 'Elite Basketball Camp - Summer 2026',
+    description: 'New opportunity near you in Los Angeles',
+    timestamp: new Date(Date.now() - 172800000),
+    read: true
+  },
+  {
+    id: 'n4',
+    type: 'milestone',
+    title: '100 Profile Views!',
+    description: 'Your profile is getting noticed by coaches',
+    timestamp: new Date(Date.now() - 259200000),
+    read: true
+  }
+];

@@ -1,0 +1,10 @@
+﻿diff --git a/src/App.jsx b/src/App.jsx
+index 5b07627c..6599a738 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -6 +6 @@ import { AnimatedBackground } from './components/common/AnimatedBackground';
+-import { LandingView, AthletePortal, CoachPortal, PricingView, SignupView, LoginView, SuccessView, SignupSuccess, ComingSoon } from './views';
++import { LandingView, AthletePortal, CoachPortal, PricingView, SignupView, LoginView, SuccessView } from './views';
+@@ -34,2 +33,0 @@ const AppRoutes = () => {
+-        <Route path="/signup-success" element={<LayoutWithBackground hideFooter={true}><SignupSuccess /></LayoutWithBackground>} />
+-        <Route path="/coming-soon" element={<LayoutWithBackground hideFooter={true}><ComingSoon /></LayoutWithBackground>} />
