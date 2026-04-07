@@ -24,8 +24,22 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
-    
-    /* Theme color variables */
+
+    /* === CLUTCH THEME — Dark Gym Palette === */
+    --page-base: #080810;
+    --deep-navy: #0d1525;
+    --royal-blue: #2563eb;
+    --electric-blue: #3b82f6;
+    --cyan-highlight: #06b6d4;
+    --ball-orange: #f97316;
+    --bright-white: #f8fafc;
+    --slate-secondary: #94a3b8;
+    --glass-surface: rgba(255,255,255,0.05);
+    --glass-border: rgba(255,255,255,0.08);
+    --glow-blue: rgba(37,99,235,0.4);
+    --glow-orange: rgba(249,115,22,0.35);
+
+    /* Legacy vars kept for shadcn components */
     --blue-50: #eff6ff;
     --blue-100: #dbeafe;
     --blue-300: #93c5fd;
@@ -33,7 +47,6 @@
     --blue-500: #3b82f6;
     --blue-600: #2563eb;
     --blue-700: #1d4ed8;
-    
     --gray-50: #f9fafb;
     --gray-100: #f3f4f6;
     --gray-200: #e5e7eb;
@@ -44,7 +57,6 @@
     --gray-700: #374151;
     --gray-800: #1f2937;
     --gray-900: #111827;
-    
     --purple-500: #8b5cf6;
     --purple-600: #7c3aed;
     --green-500: #22c55e;
@@ -52,6 +64,7 @@
     --indigo-600: #4f46e5;
     --violet-500: #8b5cf6;
   }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -78,6 +91,7 @@
 @layer base {
   body {
     @apply bg-background text-foreground;
+    background-color: #080810;
   }
 }
 
@@ -91,20 +105,141 @@
 }
 
 @layer components {
+
+  /* ===================================
+     BACKGROUND SYSTEM
+  =================================== */
   .fallback-bg {
-    background: linear-gradient(-45deg, #000428, #004e92, #0000ff, #001133);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    background: #080810;
   }
 
-  ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); }
-  ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
-  ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); }
+  /* Animated glow orbs */
+  .glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    animation: orb-float 22s ease-in-out infinite;
+    pointer-events: none;
+    will-change: transform;
+  }
+  .glow-orb-blue {
+    width: 700px;
+    height: 700px;
+    background: rgba(37, 99, 235, 0.13);
+    top: -15%;
+    left: -10%;
+  }
+  .glow-orb-orange {
+    width: 500px;
+    height: 500px;
+    background: rgba(249, 115, 22, 0.09);
+    bottom: -5%;
+    right: 0%;
+    animation-delay: -8s;
+  }
+  .glow-orb-purple {
+    width: 420px;
+    height: 420px;
+    background: rgba(139, 92, 246, 0.08);
+    top: 40%;
+    right: 20%;
+    animation-delay: -14s;
+  }
 
-  /* Error boundary utilities */
+  /* ===================================
+     GLASS CARD SYSTEM
+  =================================== */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .glass-card-strong {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+  }
+
+  /* Icon containers */
+  .icon-blue {
+    background: linear-gradient(135deg, rgba(37,99,235,0.25), rgba(6,182,212,0.15));
+    border: 1px solid rgba(37,99,235,0.3);
+  }
+  .icon-orange {
+    background: linear-gradient(135deg, rgba(249,115,22,0.25), rgba(234,88,12,0.15));
+    border: 1px solid rgba(249,115,22,0.3);
+  }
+  .icon-purple {
+    background: linear-gradient(135deg, rgba(139,92,246,0.25), rgba(124,58,237,0.15));
+    border: 1px solid rgba(139,92,246,0.3);
+  }
+  .icon-cyan {
+    background: linear-gradient(135deg, rgba(6,182,212,0.25), rgba(14,165,233,0.15));
+    border: 1px solid rgba(6,182,212,0.3);
+  }
+
+  /* Gradient text */
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-orange {
+    background: linear-gradient(135deg, #f97316, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow button */
+  .btn-glow-blue {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    box-shadow: 0 0 20px rgba(37,99,235,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+    border: 1px solid rgba(59,130,246,0.5);
+  }
+  .btn-glow-blue:hover {
+    box-shadow: 0 0 35px rgba(37,99,235,0.6), inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+
+  /* ===================================
+     SCROLL PROGRESS BAR
+  =================================== */
+  .scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 9999;
+    transform-origin: left;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4, #f97316);
+  }
+
+  /* ===================================
+     SCROLLBAR
+  =================================== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); }
+  ::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.3); border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(59,130,246,0.5); }
+
+  /* ===================================
+     UTILITIES
+  =================================== */
+  .loading-spinner {
+    @apply flex items-center justify-center min-h-[200px] bg-gradient-to-br from-white/5 to-white/10 rounded-xl backdrop-blur-sm;
+  }
+  .loading-spinner::after {
+    content: '';
+    @apply w-12 h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin shadow-lg;
+  }
+
   .error-boundary {
-    border: 2px dashed rgba(255, 0, 0, 0.3);
+    border: 2px dashed rgba(255,0,0,0.3);
     position: relative;
   }
   .error-boundary::after {
@@ -112,24 +247,59 @@
     position: absolute;
     top: 0;
     right: 0;
-    background: rgba(255, 0, 0, 0.1);
+    background: rgba(255,0,0,0.1);
     color: red;
     font-size: 14px;
     padding: 2px 6px;
     border-radius: 0 0 0 4px;
     pointer-events: none;
   }
-  .loading-spinner {
-    @apply flex items-center justify-center min-h-[200px] bg-gradient-to-br from-white/5 to-white/10 rounded-xl backdrop-blur-sm;
-  }
-  .loading-spinner::after {
-    content: '';
-    @apply w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin shadow-lg;
-  }
 }
 
+/* ===================================
+   KEYFRAME ANIMATIONS
+=================================== */
+
+/* Background orbs */
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(40px, 30px) scale(1.06); }
+  66%       { transform: translate(-20px, 50px) scale(0.96); }
+}
+
+/* Basketball bounce along parabolic arc */
+@keyframes ball-arc {
+  0%   { transform: translate(0px, 0px) rotate(0deg); opacity: 0; }
+  5%   { opacity: 1; }
+  20%  { transform: translate(120px, -100px) rotate(72deg); }
+  40%  { transform: translate(240px, 20px) rotate(144deg); }
+  60%  { transform: translate(360px, -80px) rotate(216deg); }
+  80%  { transform: translate(480px, 10px) rotate(288deg); }
+  95%  { opacity: 1; }
+  100% { transform: translate(580px, -30px) rotate(360deg); opacity: 0; }
+}
+
+/* Court line draw (used via JS stroke-dashoffset) */
+@keyframes court-draw {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Score counter glow pulse */
+@keyframes score-glow {
+  0%, 100% { text-shadow: 0 0 20px rgba(59,130,246,0.5); }
+  50%       { text-shadow: 0 0 50px rgba(59,130,246,0.9), 0 0 80px rgba(6,182,212,0.4); }
+}
+
+/* Shimmer for loading states */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Legacy gradient (kept for fallback) */
 @keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
