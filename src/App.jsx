@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { AnimatedBackground } from './components/common/AnimatedBackground';
@@ -9,10 +9,10 @@ import { UserProvider } from './hooks/useUser';
 const LayoutWithBackground = ({ children, hideFooter = false }) => {
   return (
     <>
-      <div className="fixed inset-0 w-full h-full overflow-hidden z-0 bg-black">
+      <div className="fixed inset-0 w-full h-full overflow-hidden z-0">
         <AnimatedBackground />
       </div>
-      <div className="fixed inset-0 z-10 pointer-events-none" style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }} />
+      <div className="fixed inset-0 z-10 pointer-events-none" style={{ backgroundColor: 'rgba(0, 0, 0, 0.15)' }} />
       <div className="relative z-20 flex flex-col min-h-screen">
         <Navbar />
         {children}
@@ -22,7 +22,6 @@ const LayoutWithBackground = ({ children, hideFooter = false }) => {
   );
 };
 
-// Component to handle layout conditions based on routes
 const AppRoutes = () => {
   return (
     <div className="relative min-h-screen font-sans text-white fallback-bg selection:bg-blue-500/30">
