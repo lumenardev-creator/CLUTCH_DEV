@@ -14,6 +14,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,6 +50,18 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        /* Premium Dark Theme Colors */
+        clutch: {
+          base: '#0b1220',
+          surface: '#111827',
+          elevated: '#1f2937',
+          primary: '#0ea5e9',
+          secondary: '#6366f1',
+          accent: '#22c55e',
+          highlight: '#f59e0b',
+          text: '#f9fafb',
+          muted: '#9ca3af',
         },
         blue: {
           50: 'var(--blue-50)',
@@ -98,10 +113,25 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        "fadeUp": {
+          from: { opacity: 0, transform: "translateY(20px)" },
+          to: { opacity: 1, transform: "translateY(0)" },
+        },
+        "glowPulse": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(14,165,233,0.15)" },
+          "50%": { boxShadow: "0 0 40px rgba(14,165,233,0.3)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fadeUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards",
+        "glow-pulse": "glowPulse 3s ease-in-out infinite",
+      },
+      boxShadow: {
+        'premium': '0 10px 40px rgba(0,0,0,0.6)',
+        'glow-blue': '0 0 30px rgba(14,165,233,0.25)',
+        'glow-indigo': '0 0 30px rgba(99,102,241,0.25)',
       },
     },
   },

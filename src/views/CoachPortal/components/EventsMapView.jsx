@@ -77,16 +77,16 @@ export const EventsMapView = () => {
         {/* Header */}
         <div className="flex items-center justify-between shrink-0 mb-6">
           <div>
-            <h1 className="text-[28px] font-black text-gray-900 mb-1 flex items-center gap-3 tracking-tight">
+            <h1 className="text-[28px] font-black text-[#f9fafb] mb-1 flex items-center gap-3 tracking-tight">
               <button 
                 onClick={() => setShowMap(false)} 
-                className="hover:bg-gray-100 p-1.5 rounded-xl transition-colors -ml-2 text-gray-500 hover:text-gray-900 z-10 relative"
+                className="hover:bg-white/[0.06] p-1.5 rounded-xl transition-colors -ml-2 text-[#6b7280] hover:text-[#f9fafb] z-10 relative"
               >
                 <ChevronLeft className="w-7 h-7" strokeWidth={2.5}/>
               </button>
               Talent Intelligence Map
             </h1>
-            <p className="text-gray-500 text-[15px] font-medium ml-12">Geographic talent density, growth trends, and event visibility.</p>
+            <p className="text-[#9ca3af] text-[15px] font-medium ml-12">Geographic talent density, growth trends, and event visibility.</p>
           </div>
         </div>
 
@@ -97,100 +97,100 @@ export const EventsMapView = () => {
           <div className="w-[300px] flex flex-col shrink-0 overflow-y-auto pr-2 custom-scrollbar">
             
             <div className="mb-8">
-              <h3 className="flex items-center gap-2 font-bold text-gray-900 text-sm mb-4">
-                <Layers className="w-4 h-4 text-gray-500" /> Map Layers
+              <h3 className="flex items-center gap-2 font-bold text-[#f9fafb] text-sm mb-4">
+                <Layers className="w-4 h-4 text-[#6b7280]" /> Map Layers
               </h3>
               <div className="relative">
-                <select className="w-full appearance-none bg-gray-50 border border-gray-200 text-gray-900 text-sm font-bold rounded-xl px-4 py-3 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all cursor-pointer">
+                <select className="w-full appearance-none bg-[#111827] border border-white/[0.06] text-[#f9fafb] text-sm font-bold rounded-xl px-4 py-3 pr-10 focus:outline-none focus:ring-2 focus:ring-[#3b82f6] transition-all cursor-pointer">
                   <option>High ClutchScore</option>
                   <option>High Density</option>
                   <option>Recent Growth</option>
                 </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#6b7280]">
                   <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                 </div>
               </div>
             </div>
 
-            <div className="mb-8 p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
-              <h3 className="flex items-center gap-2 font-bold text-gray-900 text-sm mb-5">
-                <Filter className="w-4 h-4 text-gray-500" /> Filters
+            <div className="mb-8 p-6 bg-[#111827] rounded-2xl border border-white/[0.06]">
+              <h3 className="flex items-center gap-2 font-bold text-[#f9fafb] text-sm mb-5">
+                <Filter className="w-4 h-4 text-[#6b7280]" /> Filters
               </h3>
               
               <div className="space-y-5">
                 <div>
-                  <label className="block text-xs font-bold text-gray-500 mb-2">Position</label>
+                  <label className="block text-xs font-bold text-[#6b7280] mb-2">Position</label>
                   <div className="relative">
-                    <select className="w-full appearance-none bg-gray-50 border border-gray-200 text-gray-900 text-sm font-bold rounded-xl px-4 py-2.5 pr-10 focus:outline-none cursor-pointer">
+                    <select className="w-full appearance-none bg-white/[0.04] border border-white/[0.06] text-[#f9fafb] text-sm font-bold rounded-xl px-4 py-2.5 pr-10 focus:outline-none cursor-pointer">
                       <option>Shooting Guard</option>
                       <option>Point Guard</option>
                       <option>Any</option>
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400"><svg className="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg></div>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#6b7280]"><svg className="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg></div>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-500 mb-2">Class Year</label>
+                  <label className="block text-xs font-bold text-[#6b7280] mb-2">Class Year</label>
                   <div className="relative">
-                    <select className="w-full appearance-none bg-gray-50 border border-gray-200 text-gray-900 text-sm font-bold rounded-xl px-4 py-2.5 pr-10 focus:outline-none cursor-pointer">
+                    <select className="w-full appearance-none bg-white/[0.04] border border-white/[0.06] text-[#f9fafb] text-sm font-bold rounded-xl px-4 py-2.5 pr-10 focus:outline-none cursor-pointer">
                       <option>All Years</option>
                       <option>2026</option>
                       <option>2027</option>
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400"><svg className="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg></div>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#6b7280]"><svg className="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg></div>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-500 mb-2">ClutchScore Range</label>
+                  <label className="block text-xs font-bold text-[#6b7280] mb-2">ClutchScore Range</label>
                   <div className="flex gap-3">
-                    <input type="number" defaultValue="0" className="w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold rounded-xl py-2 focus:outline-none" />
-                    <span className="text-gray-400 font-bold self-center">-</span>
-                    <input type="number" defaultValue="100" className="w-full bg-gray-50 border border-gray-200 text-center text-sm font-bold rounded-xl py-2 focus:outline-none" />
+                    <input type="number" defaultValue="0" className="w-full bg-white/[0.04] border border-white/[0.06] text-center text-sm text-[#f9fafb] font-bold rounded-xl py-2 focus:outline-none" />
+                    <span className="text-[#6b7280] font-bold self-center">-</span>
+                    <input type="number" defaultValue="100" className="w-full bg-white/[0.04] border border-white/[0.06] text-center text-sm text-[#f9fafb] font-bold rounded-xl py-2 focus:outline-none" />
                   </div>
                 </div>
 
                 <div className="flex items-center justify-between pt-2">
-                  <label className="text-sm font-bold text-gray-700">Verified Only</label>
-                  <input type="checkbox" defaultChecked className="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 bg-gray-50 cursor-pointer" />
+                  <label className="text-sm font-bold text-[#d1d5db]">Verified Only</label>
+                  <input type="checkbox" defaultChecked className="w-5 h-5 rounded border-white/[0.1] text-[#3b82f6] focus:ring-[#3b82f6] bg-white/[0.04] cursor-pointer" />
                 </div>
               </div>
             </div>
 
             <div className="mb-8">
-              <h3 className="flex items-center gap-2 font-bold text-gray-900 text-sm mb-4">
-                <Activity className="w-4 h-4 text-gray-500" /> Compare Regions
+              <h3 className="flex items-center gap-2 font-bold text-[#f9fafb] text-sm mb-4">
+                <Activity className="w-4 h-4 text-[#6b7280]" /> Compare Regions
               </h3>
               <div className="space-y-3">
                 <div className="relative">
-                  <select className="w-full appearance-none bg-gray-50 border border-gray-200 text-gray-900 text-sm font-bold rounded-xl px-4 py-3 pr-10 focus:outline-none cursor-pointer">
+                  <select className="w-full appearance-none bg-[#111827] border border-white/[0.06] text-[#f9fafb] text-sm font-bold rounded-xl px-4 py-3 pr-10 focus:outline-none cursor-pointer">
                     <option>California</option>
                   </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400"><svg className="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg></div>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#6b7280]"><svg className="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg></div>
                 </div>
                 <div className="relative">
-                  <select className="w-full appearance-none bg-white border border-dashed border-gray-300 text-gray-400 text-sm font-bold rounded-xl px-4 py-3 pr-10 focus:outline-none cursor-pointer">
+                  <select className="w-full appearance-none bg-white/[0.04] border border-dashed border-white/[0.08] text-[#6b7280] text-sm font-bold rounded-xl px-4 py-3 pr-10 focus:outline-none cursor-pointer">
                     <option>Select Region B</option>
                   </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400"><svg className="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg></div>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#6b7280]"><svg className="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg></div>
                 </div>
-                <button className="w-full bg-gray-400 text-white font-bold py-3 rounded-xl text-sm shadow-sm cursor-not-allowed">
+                <button className="w-full bg-[#1f2937] text-[#6b7280] font-bold py-3 rounded-xl text-sm cursor-not-allowed border border-white/[0.04]">
                   Compare
                 </button>
               </div>
             </div>
 
             <div className="mb-4">
-              <h3 className="font-bold text-gray-900 text-sm mb-4">Display Options</h3>
+              <h3 className="font-bold text-[#f9fafb] text-sm mb-4">Display Options</h3>
               <div className="space-y-3">
-                <div className="flex items-center justify-between hover:bg-gray-50 p-2 -mx-2 rounded-lg cursor-pointer transition-colors">
-                  <label className="text-sm font-bold text-gray-700 cursor-pointer w-full">Show Events</label>
-                  <input type="checkbox" defaultChecked className="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 bg-white cursor-pointer" />
+                <div className="flex items-center justify-between hover:bg-white/[0.02] p-2 -mx-2 rounded-lg cursor-pointer transition-colors">
+                  <label className="text-sm font-bold text-[#d1d5db] cursor-pointer w-full">Show Events</label>
+                  <input type="checkbox" defaultChecked className="w-5 h-5 rounded border-white/[0.1] text-[#3b82f6] focus:ring-[#3b82f6] bg-white/[0.04] cursor-pointer" />
                 </div>
-                <div className="flex items-center justify-between hover:bg-gray-50 p-2 -mx-2 rounded-lg cursor-pointer transition-colors">
-                  <label className="text-sm font-bold text-gray-700 cursor-pointer w-full">Show My Recruiting Footprint</label>
-                  <input type="checkbox" className="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 bg-white cursor-pointer" />
+                <div className="flex items-center justify-between hover:bg-white/[0.02] p-2 -mx-2 rounded-lg cursor-pointer transition-colors">
+                  <label className="text-sm font-bold text-[#d1d5db] cursor-pointer w-full">Show My Recruiting Footprint</label>
+                  <input type="checkbox" className="w-5 h-5 rounded border-white/[0.1] text-[#3b82f6] focus:ring-[#3b82f6] bg-white/[0.04] cursor-pointer" />
                 </div>
               </div>
             </div>
@@ -198,19 +198,23 @@ export const EventsMapView = () => {
           </div>
 
           {/* Center Canvas with React Leaflet */}
-          <div className="flex-[1.5] bg-gray-100 rounded-3xl shadow-inner border border-gray-200 relative overflow-hidden h-full min-h-[600px] z-0 isolate block">
+          <div className="flex-[1.5] bg-[#1f2937] rounded-3xl shadow-inner border border-white/[0.06] relative overflow-hidden h-full min-h-[600px] z-0 isolate block">
             <style dangerouslySetInnerHTML={{__html: `
               .leaflet-container {
-                background: #f8fafc;
+                background: #111827;
                 border-radius: 1.5rem;
               }
               .leaflet-control-zoom {
                 border: none !important;
-                box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+                box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3) !important;
               }
               .leaflet-control-zoom a {
-                color: #111827 !important;
-                border-bottom-color: #f1f5f9 !important;
+                color: #f9fafb !important;
+                background: #1f2937 !important;
+                border-bottom-color: rgba(255,255,255,0.06) !important;
+              }
+              .leaflet-control-zoom a:hover {
+                background: #374151 !important;
               }
             `}} />
             
@@ -222,12 +226,12 @@ export const EventsMapView = () => {
               minZoom={3}
             >
               <TileLayer
-                url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
                 attribution='&copy; <a href="https://carto.com/">CartoDB</a>'
               />
               <ZoomControl position="bottomright" />
 
-              {/* Data Node Markers - using exact approximate GPS coords */}
+              {/* Data Node Markers */}
               <Marker position={[36.7783, -119.4179]} icon={createNodeIcon({ value: 342, abbreviation: 'Cali', trend: true, trendValue: 15 })} />
               <Marker position={[40.6331, -89.3985]} icon={createNodeIcon({ value: 154, abbreviation: 'Illi', trend: false })} />
               <Marker position={[40.4173, -82.9071]} icon={createNodeIcon({ value: 128, abbreviation: 'Ohio', trend: true, trendValue: 6 })} />
@@ -241,28 +245,28 @@ export const EventsMapView = () => {
             </MapContainer>
 
             {/* Top Right Label overlay */}
-            <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm border border-gray-100 shadow-sm rounded-full py-2 px-4 flex items-center gap-2 z-[400] pointer-events-none">
-              <Activity className="w-4 h-4 text-blue-500" />
-              <span className="text-sm font-bold text-gray-700">High ClutchScore</span>
+            <div className="absolute top-6 right-6 bg-[#111827]/95 backdrop-blur-sm border border-white/[0.06] shadow-sm rounded-full py-2 px-4 flex items-center gap-2 z-[400] pointer-events-none">
+              <Activity className="w-4 h-4 text-[#3b82f6]" />
+              <span className="text-sm font-bold text-[#d1d5db]">High ClutchScore</span>
             </div>
 
             {/* Legend Overlay */}
-            <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm border border-gray-100 shadow-sm rounded-2xl p-4 min-w-[160px] z-[400] pointer-events-none">
-              <h4 className="text-[11px] font-black uppercase text-gray-400 mb-3 tracking-wider">Legend</h4>
+            <div className="absolute bottom-6 left-6 bg-[#111827]/95 backdrop-blur-sm border border-white/[0.06] shadow-sm rounded-2xl p-4 min-w-[160px] z-[400] pointer-events-none">
+              <h4 className="text-[11px] font-black uppercase text-[#6b7280] mb-3 tracking-wider">Legend</h4>
               <div className="space-y-3 test-sm font-medium">
                 <div className="flex items-center gap-3">
-                  <span className="w-3.5 h-3.5 rounded-full bg-blue-600 block shadow-sm border border-white"></span>
-                  <span className="text-gray-700 text-xs font-bold">High Density</span>
+                  <span className="w-3.5 h-3.5 rounded-full bg-blue-600 block shadow-sm border border-[#111827]"></span>
+                  <span className="text-[#d1d5db] text-xs font-bold">High Density</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="w-3.5 h-3.5 rounded-full bg-blue-400 block shadow-sm border border-white"></span>
-                  <span className="text-gray-700 text-xs font-bold">Medium Density</span>
+                  <span className="w-3.5 h-3.5 rounded-full bg-blue-400 block shadow-sm border border-[#111827]"></span>
+                  <span className="text-[#d1d5db] text-xs font-bold">Medium Density</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="w-3.5 h-3.5 rounded-full bg-purple-600 flex items-center justify-center border border-white shadow-sm text-white">
+                  <span className="w-3.5 h-3.5 rounded-full bg-purple-600 flex items-center justify-center border border-[#111827] shadow-sm text-white">
                     <CalendarDays className="w-2 h-2" strokeWidth={3} />
                   </span>
-                  <span className="text-gray-700 text-xs font-bold">Upcoming Events</span>
+                  <span className="text-[#d1d5db] text-xs font-bold">Upcoming Events</span>
                 </div>
               </div>
             </div>
@@ -273,68 +277,68 @@ export const EventsMapView = () => {
           <div className="w-[320px] flex flex-col shrink-0 overflow-y-auto pb-4 custom-scrollbar">
             
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-black text-gray-900 tracking-tight">New York</h2>
-              <span className="bg-gray-100 text-gray-600 text-[10px] uppercase font-black tracking-widest px-2.5 py-1 rounded-md">Region</span>
+              <h2 className="text-2xl font-black text-[#f9fafb] tracking-tight">New York</h2>
+              <span className="bg-white/[0.06] text-[#9ca3af] text-[10px] uppercase font-black tracking-widest px-2.5 py-1 rounded-md border border-white/[0.04]">Region</span>
             </div>
 
             <div className="grid grid-cols-2 gap-3 mb-6">
-              <div className="bg-blue-50/50 rounded-2xl p-4 border border-blue-100/50">
-                <div className="flex items-center gap-2 text-blue-600 mb-3">
+              <div className="bg-[#3b82f6]/10 rounded-2xl p-4 border border-[#3b82f6]/20">
+                <div className="flex items-center gap-2 text-[#3b82f6] mb-3">
                   <Users className="w-4 h-4" />
-                  <span className="text-[11px] font-black uppercase tracking-wider text-blue-500">Total Prospects</span>
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[#3b82f6]">Total Prospects</span>
                 </div>
-                <div className="text-3xl font-black text-blue-600 tracking-tight">167</div>
+                <div className="text-3xl font-black text-[#3b82f6] tracking-tight">167</div>
               </div>
 
-              <div className="bg-white rounded-2xl p-4 border border-gray-100">
-                <div className="flex items-center gap-2 text-gray-500 mb-3">
-                  <ShieldCheck className="w-4 h-4 text-green-500" />
-                  <span className="text-[11px] font-black uppercase tracking-wider text-gray-400">Verified</span>
+              <div className="bg-[#111827] rounded-2xl p-4 border border-white/[0.06]">
+                <div className="flex items-center gap-2 text-[#6b7280] mb-3">
+                  <ShieldCheck className="w-4 h-4 text-[#22c55e]" />
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[#6b7280]">Verified</span>
                 </div>
-                <div className="text-2xl font-black text-gray-900 tracking-tight">61%</div>
+                <div className="text-2xl font-black text-[#f9fafb] tracking-tight">61%</div>
               </div>
 
-              <div className="bg-white rounded-2xl p-4 border border-gray-100">
-                <div className="flex items-center gap-2 text-gray-500 mb-3">
-                  <Activity className="w-4 h-4 text-purple-500" />
-                  <span className="text-[11px] font-black uppercase tracking-wider text-gray-400">Avg Score</span>
+              <div className="bg-[#111827] rounded-2xl p-4 border border-white/[0.06]">
+                <div className="flex items-center gap-2 text-[#6b7280] mb-3">
+                  <Activity className="w-4 h-4 text-[#6366f1]" />
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[#6b7280]">Avg Score</span>
                 </div>
-                <div className="text-2xl font-black text-blue-600 tracking-tight">8.1</div>
+                <div className="text-2xl font-black text-[#3b82f6] tracking-tight">8.1</div>
               </div>
 
-              <div className="bg-green-50/70 rounded-2xl p-4 border border-green-100/50">
-                <div className="flex items-center gap-2 text-green-700 mb-3">
+              <div className="bg-[#22c55e]/10 rounded-2xl p-4 border border-[#22c55e]/20">
+                <div className="flex items-center gap-2 text-[#22c55e] mb-3">
                   <TrendingUp className="w-4 h-4" />
-                  <span className="text-[11px] font-black uppercase tracking-wider text-green-600">Trend</span>
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[#22c55e]">Trend</span>
                 </div>
-                <div className="text-2xl font-black text-green-600 tracking-tight">+8%</div>
+                <div className="text-2xl font-black text-[#22c55e] tracking-tight">+8%</div>
               </div>
 
-              <div className="bg-white rounded-2xl p-4 border border-gray-100">
-                <div className="flex items-center gap-2 text-gray-500 mb-3">
-                  <span className="text-[11px] font-black uppercase tracking-wider text-gray-400">Top Position</span>
+              <div className="bg-[#111827] rounded-2xl p-4 border border-white/[0.06]">
+                <div className="flex items-center gap-2 text-[#6b7280] mb-3">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[#6b7280]">Top Position</span>
                 </div>
-                <div className="text-2xl font-black text-gray-900 tracking-tight">PG</div>
+                <div className="text-2xl font-black text-[#f9fafb] tracking-tight">PG</div>
               </div>
 
-              <div className="bg-white rounded-2xl p-4 border border-gray-100">
-                <div className="flex items-center gap-2 text-gray-500 mb-3">
-                  <CalendarDays className="w-4 h-4 text-indigo-500" />
-                  <span className="text-[11px] font-black uppercase tracking-wider text-gray-400">Events</span>
+              <div className="bg-[#111827] rounded-2xl p-4 border border-white/[0.06]">
+                <div className="flex items-center gap-2 text-[#6b7280] mb-3">
+                  <CalendarDays className="w-4 h-4 text-[#6366f1]" />
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[#6b7280]">Events</span>
                 </div>
-                <div className="text-2xl font-black text-gray-900 tracking-tight">11</div>
+                <div className="text-2xl font-black text-[#f9fafb] tracking-tight">11</div>
               </div>
             </div>
 
             <div className="space-y-3 mt-auto mb-2">
-              <button className="w-full bg-gray-900 text-white font-bold py-3.5 px-6 rounded-xl text-sm shadow-xl shadow-gray-900/10 flex items-center justify-center gap-2.5 hover:bg-black transition-all transform hover:-translate-y-0.5">
+              <button className="w-full bg-gradient-to-br from-[#6366f1] to-[#3b82f6] text-white font-bold py-3.5 px-6 rounded-xl text-sm shadow-[0_4px_15px_rgba(99,102,241,0.2)] flex items-center justify-center gap-2.5 hover:scale-105 active:scale-[0.96] transition-all">
                 <Eye size={16} className="text-white/80" /> View Prospects
               </button>
-              <button className="w-full bg-white border border-gray-200 text-gray-700 font-bold py-3 px-6 rounded-xl text-sm flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors">
-                <Bookmark size={15} className="text-gray-400" /> Add Region to Watch
+              <button className="w-full bg-white/[0.04] border border-white/[0.06] text-[#d1d5db] font-bold py-3 px-6 rounded-xl text-sm flex items-center justify-center gap-2 hover:bg-white/[0.08] transition-colors">
+                <Bookmark size={15} className="text-[#6b7280]" /> Add Region to Watch
               </button>
-              <button className="w-full bg-white border border-gray-200 text-gray-700 font-bold py-3 px-6 rounded-xl text-sm flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors">
-                <CalendarDays size={15} className="text-gray-400" /> View Events
+              <button className="w-full bg-white/[0.04] border border-white/[0.06] text-[#d1d5db] font-bold py-3 px-6 rounded-xl text-sm flex items-center justify-center gap-2 hover:bg-white/[0.08] transition-colors">
+                <CalendarDays size={15} className="text-[#6b7280]" /> View Events
               </button>
             </div>
           </div>
@@ -346,37 +350,37 @@ export const EventsMapView = () => {
   // Original Events View
   return (
     <div className="animate-in fade-in duration-300 w-full max-w-6xl mx-auto flex flex-col h-full">
-      <div className="flex items-end justify-between mb-8 pb-3 border-b border-gray-200 shrink-0">
+      <div className="flex items-end justify-between mb-8 pb-3 border-b border-white/[0.06] shrink-0">
         <div>
-          <h1 className="text-3xl font-black text-gray-900 mb-1 tracking-tight">Events & Map</h1>
-          <p className="text-gray-500 text-sm font-medium">Discover tournaments and scouting opportunities</p>
+          <h1 className="text-3xl font-black text-[#f9fafb] mb-1 tracking-tight">Events & Map</h1>
+          <p className="text-[#9ca3af] text-sm font-medium">Discover tournaments and scouting opportunities</p>
         </div>
         <button 
           onClick={() => setShowMap(true)}
-          className="bg-white border border-gray-200 text-gray-900 font-bold py-2.5 px-6 rounded-xl text-sm shadow-sm flex items-center gap-2 hover:bg-gray-50 transition-colors hover:shadow-md hover:-translate-y-0.5"
+          className="bg-white/[0.04] border border-white/[0.06] text-[#f9fafb] font-bold py-2.5 px-6 rounded-xl text-sm flex items-center gap-2 hover:bg-white/[0.08] transition-all hover:-translate-y-0.5"
         >
-          <MapIcon className="w-4 h-4 text-blue-600" /> View Full Map
+          <MapIcon className="w-4 h-4 text-[#3b82f6]" /> View Full Map
         </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-12">
         {opportunitiesNearYou.map((opp, i) => (
-          <div key={i} className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:border-blue-200 hover:shadow-md transition-all duration-300 group cursor-pointer">
-            <div className="relative h-48 bg-gray-200">
+          <div key={i} className="bg-[#111827] rounded-3xl border border-white/[0.06] overflow-hidden flex flex-col hover:border-white/[0.12] hover:-translate-y-1 hover:shadow-lg hover:shadow-black/50 transition-all duration-300 group cursor-pointer">
+            <div className="relative h-48 bg-[#1f2937]">
               <img src={opp.img} alt={opp.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
-              <div className="absolute top-4 right-4 bg-blue-600 text-white text-[10px] font-black tracking-widest uppercase px-3 py-1.5 rounded-lg shadow-sm">{opp.type}</div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0b1220]/70 to-transparent" />
+              <div className="absolute top-4 right-4 bg-[#3b82f6] text-white text-[10px] font-black tracking-widest uppercase px-3 py-1.5 rounded-lg shadow-sm">{opp.type}</div>
               <h4 className="absolute bottom-4 left-5 right-5 font-black text-white text-xl leading-tight drop-shadow-md">{opp.title}</h4>
             </div>
             <div className="p-6 flex flex-col flex-grow">
               <div className="space-y-3 mb-6 font-bold text-sm">
-                <div className="flex items-center text-gray-600 gap-3"><Calendar size={16} className="text-gray-400" /> {opp.date}</div>
-                <div className="flex items-center text-gray-600 gap-3"><MapPin size={16} className="text-gray-400" /> {opp.location}</div>
-                <div className="flex items-center text-gray-600 gap-3"><Tag size={16} className="text-gray-400" /> {opp.tags}</div>
+                <div className="flex items-center text-[#d1d5db] gap-3"><Calendar size={16} className="text-[#6b7280]" /> {opp.date}</div>
+                <div className="flex items-center text-[#d1d5db] gap-3"><MapPin size={16} className="text-[#6b7280]" /> {opp.location}</div>
+                <div className="flex items-center text-[#d1d5db] gap-3"><Tag size={16} className="text-[#6b7280]" /> {opp.tags}</div>
               </div>
-              <p className="text-sm text-gray-500 font-medium leading-relaxed mb-8 flex-grow">{opp.desc}</p>
+              <p className="text-sm text-[#9ca3af] font-medium leading-relaxed mb-8 flex-grow">{opp.desc}</p>
               <div className="flex gap-3 mt-auto">
-                <button className="flex-1 bg-gray-900 text-white font-bold py-3 rounded-xl hover:bg-gray-800 transition-colors text-sm shadow-sm group-hover:bg-blue-600">Register</button>
+                <button className="flex-1 bg-gradient-to-br from-[#6366f1] to-[#3b82f6] text-white font-bold py-3 rounded-xl hover:from-[#4f46e5] hover:to-[#2563eb] transition-all text-sm shadow-sm hover:scale-105 active:scale-[0.96]">Register</button>
               </div>
             </div>
           </div>
